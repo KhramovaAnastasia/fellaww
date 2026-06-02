@@ -1,0 +1,496 @@
+// Sections for Follaw site
+
+const INDUSTRIES = [
+{ name: 'Мода', code: '01', size: 'tag' },
+{ name: 'Музыка', code: '02', size: 'tag' },
+{ name: 'Дизайн', code: '03', size: 'tag' },
+{ name: 'Кино и сериалы', code: '04', size: 'feat' },
+{ name: 'Фотография', code: '05', size: 'tag' },
+{ name: 'Гастро­номия', code: '06', size: 'tag' },
+{ name: 'Архитектура', code: '07', size: 'wide' },
+{ name: 'Издатели', code: '08', size: 'thin' },
+{ name: 'Гейминг', code: '09', size: 'thin' },
+{ name: 'Парфюм', code: '10', size: 'tag' },
+{ name: 'Реклама', code: '11', size: 'tag' },
+{ name: 'Артисты', code: '12', size: 'tag' }];
+
+
+function Nav({ scrolled }) {
+  return (
+    <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
+      <div className="row">
+        <a href="#top" className="brand">
+          Foll<span className="a">a</span>w<span className="dot"></span>
+        </a>
+        <div className="nav-links">
+          <a href="#manifest">Манифест</a>
+          <a href="#services">Практики</a>
+          <a href="#cases">Кейсы</a>
+          <a href="#team">Бюро</a>
+          <a href="#contact" className="nav-cta">
+            Написать <span className="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </nav>);
+
+}
+
+function Hero() {
+  return (
+    <section id="top" className="hero">
+      <div className="wrap">
+        <div className="top-meta">
+          <div className="eyebrow">
+            <span className="dot"></span>
+            Юридическое бюро — Москва, 2026
+          </div>
+          <div className="dotline"></div>
+          <div className="mono" style={{ color: '#8A8275' }}>FW—2026 / № 001</div>
+        </div>
+
+        <h1 className="serif">
+          <span className="h1-row">Право для тех,</span>
+          <span className="h1-row">кто <em style={{ color: "rgb(107, 31, 57)" }}>создаёт</em> культуру.</span>
+        </h1>
+        <p className="sub">
+          Сопровождаем бренды и&nbsp;авторов в&nbsp;креативных индустриях&nbsp;— от&nbsp;первой капсулы до&nbsp;международного релиза. Без&nbsp;официоза, но&nbsp;без&nbsp;скидок на&nbsp;серьёзность.
+        </p>
+
+        <div className="tag-grid">
+          {INDUSTRIES.map((t, i) =>
+          <a
+            key={i}
+            href="#services"
+            className={`tag ${t.size === 'feat' ? 'feat' : ''} ${t.size === 'wide' ? 'wide' : ''} ${t.size === 'thin' ? 'thin' : ''}`} style={{ backgroundColor: "rgb(107, 31, 53)" }}>
+            
+              <span className="nm">
+                <span className="c">{t.code}</span>
+                {t.name}
+              </span>
+              <span className="arr">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
+                </svg>
+              </span>
+            </a>
+          )}
+        </div>
+
+        <div className="strip">
+          <div className="strip-track">
+            {Array.from({ length: 2 }).map((_, j) =>
+            <React.Fragment key={j}>
+                <span>Авторское право<span className="d"></span></span>
+                <span>Товарные знаки<span className="d"></span></span>
+                <span>Коллаборации<span className="d"></span></span>
+                <span>Лицензирование<span className="d"></span></span>
+                <span>Споры с маркетплейсами<span className="d"></span></span>
+                <span>NDA / контракты<span className="d"></span></span>
+                <span>GR в индустрии<span className="d"></span></span>
+                <span>M&amp;A для брендов<span className="d"></span></span>
+              </React.Fragment>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+function Manifesto() {
+  return (
+    <section id="manifest" className="section">
+      <div className="wrap manifesto">
+        <div>
+          <div className="eyebrow" style={{ marginBottom: 32 }}>
+            <span className="dot"></span>I — Манифест
+          </div>
+          <h2 className="serif">
+            Мы&nbsp;не&nbsp;стоим над,<br />
+            мы&nbsp;идём <em>рядом</em>.
+          </h2>
+        </div>
+        <div className="right">
+          <p className="quote">
+            Мода, музыка, дизайн&nbsp;— территории, где&nbsp;<span className="accent">право встречает вкус</span>. Мы&nbsp;умеем работать на&nbsp;этой границе: говорим на&nbsp;языке индустрии и&nbsp;на&nbsp;языке закона.
+          </p>
+          <div className="pillars">
+            <div className="pillar">
+              <div className="n">— 01</div>
+              <h4>Свой человек в&nbsp;индустрии</h4>
+              <p>Лукбук, лекало, тираж, поп-ап, релиз. Подбираем решения под&nbsp;ритм бренда, а&nbsp;не&nbsp;под&nbsp;шаблон.</p>
+            </div>
+            <div className="pillar">
+              <div className="n">— 02</div>
+              <h4>Тонкая работа со&nbsp;смыслом</h4>
+              <p>Имя, силуэт, мотив, мелодия — всё это объекты права. Помогаем выстраивать архитектуру владения и&nbsp;лицензий.</p>
+            </div>
+            <div className="pillar">
+              <div className="n">— 03</div>
+              <h4>Защита без&nbsp;шума</h4>
+              <p>От&nbsp;регистрации товарного знака до&nbsp;спора с&nbsp;маркетплейсом — ведём дело так, чтобы&nbsp;бренд оставался в&nbsp;сюжете, а&nbsp;не&nbsp;в&nbsp;скандале.</p>
+            </div>
+            <div className="pillar">
+              <div className="n">— 04</div>
+              <h4>Мы&nbsp;на&nbsp;вашей стороне</h4>
+              <p>Не&nbsp;берём дела «в обе стороны». Если&nbsp;ваша индустрия&nbsp;— наша, мы&nbsp;уже знаем оппонента и&nbsp;его маневры.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+const PRACTICES = [
+{
+  n: '01',
+  title: 'Авторское право и&nbsp;интеллектуальная собственность',
+  desc: 'Реестры, депонирование, переход прав. Помогаем не&nbsp;потерять то, что вы&nbsp;уже создали, и&nbsp;собрать всё под&nbsp;один контур.',
+  list: [
+  'Регистрация и&nbsp;защита товарных знаков',
+  'Договоры с&nbsp;авторами, фотографами, моделями',
+  'Передача прав, work-for-hire',
+  'Депонирование и&nbsp;нотариальная фиксация'],
+
+  price: 'от 80 000 ₽'
+},
+{
+  n: '02',
+  title: 'Бренд и&nbsp;коллаборации',
+  desc: 'Капсулы, лимитки, совместные релизы. Прописываем кто, что&nbsp;и&nbsp;на&nbsp;каких условиях даёт&nbsp;— чтобы&nbsp;коллаборация осталась красивой историей.',
+  list: [
+  'Структуры коллабораций и&nbsp;лимитированных линий',
+  'Лицензионные пакеты для&nbsp;партнёров',
+  'Splits, royalties, role-clauses для&nbsp;мьюзик-релизов',
+  'Креативные брифы как&nbsp;юридические документы'],
+
+  price: 'от 120 000 ₽'
+},
+{
+  n: '03',
+  title: 'Контракты и&nbsp;контрактная архитектура',
+  desc: 'Не&nbsp;шаблон, а&nbsp;система. Договариваемся о&nbsp;ключевом, прописываем хвосты, перечитываем глазами клиента.',
+  list: [
+  'Договоры на&nbsp;продакшн, съёмки, мероприятия',
+  'NDA, NCA, эксклюзивные опционы',
+  'Дистрибуция, B2B-продажи, поставка в&nbsp;ритейл',
+  'Договоры с&nbsp;инфлюенсерами и&nbsp;амбассадорами'],
+
+  price: 'от 60 000 ₽'
+},
+{
+  n: '04',
+  title: 'Споры и&nbsp;защита репутации',
+  desc: 'Контрафакт, недобросовестные конкуренты, маркетплейсы, СМИ. Решаем тихо, если&nbsp;можно тихо. Громко&nbsp;— если&nbsp;это часть стратегии.',
+  list: [
+  'Снятие контрафакта на&nbsp;Wildberries / Ozon / Lamoda',
+  'Претензионная работа и&nbsp;медиация',
+  'Защита репутации в&nbsp;СМИ и&nbsp;соцсетях',
+  'Судебное представительство по&nbsp;РФ'],
+
+  price: 'от 150 000 ₽'
+},
+{
+  n: '05',
+  title: 'Структура бизнеса и&nbsp;инвестиции',
+  desc: 'Открываем второе юрлицо, заходим в&nbsp;инвестора, делаем M&amp;A для&nbsp;бренда&nbsp;— знаем, как&nbsp;креативный бизнес устроен изнутри.',
+  list: [
+  'Холдинги и&nbsp;корпоративные структуры',
+  'Привлечение инвестиций, due diligence',
+  'Опционные программы для&nbsp;команды',
+  'Сделки M&amp;A: продажа доли, обмен активами'],
+
+  price: 'индивидуально'
+}];
+
+
+function Services() {
+  const [openIdx, setOpenIdx] = React.useState(0);
+  return (
+    <section id="services" className="section services">
+      <div className="wrap">
+        <div className="head">
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 32 }}>
+              <span className="dot"></span>II — Практики
+            </div>
+            <h2 className="serif">
+              Пять <em>направлений</em>,<br />
+              одно бюро.
+            </h2>
+          </div>
+          <p>Каждая практика&nbsp;— это лид-партнёр и&nbsp;команда юристов с&nbsp;индустриальным бэкграундом. Мы&nbsp;не&nbsp;распыляемся: берёмся только за&nbsp;то, что умеем делать на&nbsp;уровне.</p>
+        </div>
+
+        <div className="practice-list">
+          {PRACTICES.map((p, i) =>
+          <div
+            key={i}
+            className={`practice ${openIdx === i ? 'open' : ''}`}
+            onClick={() => setOpenIdx(openIdx === i ? -1 : i)}>
+            
+              <div className="n">— {p.n}</div>
+              <div className="body-col">
+                <h3 className="serif" dangerouslySetInnerHTML={{ __html: p.title }} />
+                <div className="desc" dangerouslySetInnerHTML={{ __html: p.desc }} />
+              </div>
+              <div className="toggle">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 1 V13 M1 7 H13" stroke="currentColor" strokeWidth="1.4" />
+                </svg>
+              </div>
+              <div className="expand">
+                <div className="expand-inner">
+                  <div>
+                    <h5>Что входит</h5>
+                    <ul>
+                      {p.list.map((li, j) =>
+                    <li key={j}><span></span><span dangerouslySetInnerHTML={{ __html: li }} /></li>
+                    )}
+                    </ul>
+                  </div>
+                  <div>
+                    <h5>Стоимость</h5>
+                    <div style={{ font: '400 38px/1 Cormorant Garamond', color: '#0F0F10', letterSpacing: '-0.02em' }}>{p.price}</div>
+                    <span className="price">— фиксированный пакет или&nbsp;ретейнер</span>
+                    <a href="#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginTop: 32, font: '500 12px/1 Inter Tight', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#6B1F2A', borderBottom: '1px solid #6B1F2A', paddingBottom: 6 }}>
+                      Обсудить задачу <span>→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>);
+
+}
+
+const CASES = [
+{ kind: 1, code: 'FW—024', size: 'lg', cat: 'Мода', year: '2025', title: 'Регистрация ТЗ для&nbsp;дома <em>Aroya</em>', desc: 'Сопроводили dom couture от&nbsp;первой коллекции до&nbsp;международной заявки в&nbsp;9&nbsp;юрисдикциях.' },
+{ kind: 2, code: 'FW—019', size: 'md', cat: 'Музыка', year: '2025', title: 'Splits для лейбла <em>Studio 7</em>', desc: 'Перестроили роялти-сетку для&nbsp;14&nbsp;артистов под&nbsp;digital-релизы.' },
+{ kind: 3, code: 'FW—016', size: 'sm', cat: 'Дизайн', year: '2024', title: 'Коллаб <em>×</em> Maison Plié', desc: 'Договорная архитектура коллаборации в&nbsp;3 странах.' },
+{ kind: 4, code: 'FW—011', size: 'sm', cat: 'Кино', year: '2024', title: 'Опцион на&nbsp;экранизацию', desc: 'Закрыли сделку между&nbsp;студией и&nbsp;автором за&nbsp;3 недели.' },
+{ kind: 5, code: 'FW—008', size: 'md', cat: 'E-com', year: '2024', title: 'Снятие контрафакта на&nbsp;маркетплейсах', desc: '72 карточки удалены, претензия принята, ущерб возмещён.' },
+{ kind: 6, code: 'FW—003', size: 'lg', cat: 'Гастрономия', year: '2023', title: 'Запуск сети <em>Komoda</em>', desc: 'Полный юридический контур: бренд, франшиза, поставщики, импорт сыров.' }];
+
+
+function Cases() {
+  return (
+    <section id="cases" className="section cases">
+      <div className="wrap">
+        <div className="cases-head">
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 32 }}>
+              <span className="dot"></span>III — Избранные кейсы
+            </div>
+            <h2 className="serif">Что мы&nbsp;уже <em>сделали</em>.</h2>
+          </div>
+          <p>За&nbsp;последние три года&nbsp;— 47&nbsp;брендов, 9&nbsp;юрисдикций, 0&nbsp;разглашённых имён без&nbsp;согласия клиента. Ниже&nbsp;— те, кто&nbsp;разрешил рассказать.</p>
+        </div>
+        <div className="case-grid">
+          {CASES.map((c, i) =>
+          <article key={i} className={`case ${c.size}`}>
+              <div className="img"><CasePattern kind={c.kind} code={c.code} /></div>
+              <div className="meta">
+                <div className="tag-row">
+                  <span>{c.cat}</span>
+                  <span className="yr">{c.year}</span>
+                </div>
+                <h4 className="serif" dangerouslySetInnerHTML={{ __html: c.title }} />
+                <p dangerouslySetInnerHTML={{ __html: c.desc }} />
+              </div>
+            </article>
+          )}
+        </div>
+      </div>
+    </section>);
+
+}
+
+const TEAM = [
+{ num: '01', name: 'Анна <em>Розамберг</em>', role: 'Управляющий партнёр / IP, мода' },
+{ num: '02', name: 'Михаил <em>Гранов</em>', role: 'Партнёр / музыка, авторское право' },
+{ num: '03', name: 'София <em>Лем</em>', role: 'Старший юрист / контракты' },
+{ num: '04', name: 'Илья <em>Бек</em>', role: 'Старший юрист / споры' }];
+
+
+function Team() {
+  return (
+    <section id="team" className="section team">
+      <div className="wrap">
+        <div className="team-head">
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 32 }}>
+              <span className="dot"></span>IV — Бюро
+            </div>
+            <h2 className="serif">Маленькая команда,<br />большие <em>дела</em>.</h2>
+          </div>
+          <p>Четверо партнёров и&nbsp;шесть юристов. Мы&nbsp;сознательно не&nbsp;растём «вширь»&nbsp;— чтобы&nbsp;каждый клиент знал, кто&nbsp;именно ведёт его дело и&nbsp;кто&nbsp;берёт трубку в&nbsp;пятницу вечером.</p>
+        </div>
+        <div className="team-grid">
+          {TEAM.map((p, i) =>
+          <div key={i} className="person">
+              <div className="portrait">
+                <span className="num">— {p.num}</span>
+                <PortraitPlaceholder kind={i} num={p.num} />
+              </div>
+              <div className="name serif" dangerouslySetInnerHTML={{ __html: p.name }} />
+              <div className="role">{p.role}</div>
+            </div>
+          )}
+        </div>
+
+        <div className="stats">
+          <div className="stat">
+            <div className="lg serif"><em>47</em></div>
+            <div className="lbl">Действующих клиентов в&nbsp;креативных индустриях</div>
+          </div>
+          <div className="stat">
+            <div className="lg serif"><em>9</em></div>
+            <div className="lbl">Юрисдикций, в&nbsp;которых&nbsp;мы регистрировали знаки</div>
+          </div>
+          <div className="stat">
+            <div className="lg serif"><em>312</em></div>
+            <div className="lbl">Заключённых контрактов и&nbsp;лицензий за&nbsp;2025</div>
+          </div>
+          <div className="stat">
+            <div className="lg serif"><em>0</em></div>
+            <div className="lbl">Утечек&nbsp;NDA. И&nbsp;это не&nbsp;случайность.</div>
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+function Contact() {
+  const [form, setForm] = React.useState({
+    name: '', company: '', email: '', task: '', industry: '', budget: ''
+  });
+  const [focus, setFocus] = React.useState('');
+  const [sent, setSent] = React.useState(false);
+
+  const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+  const submit = (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email) return;
+    setSent(true);
+  };
+
+  const industries = ['Мода', 'Музыка', 'Дизайн', 'Кино', 'Гастро', 'Реклама', 'Другое'];
+  const budgets = ['до 100k', '100–300k', '300k–1M', 'от 1M', 'обсудим'];
+
+  return (
+    <section id="contact" className="contact">
+      <div className="wrap">
+        <div className="head">
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 32, color: '#E1A6AE' }}>
+              <span className="dot" style={{ background: '#E1A6AE' }}></span>V — Контакты
+            </div>
+            <h2 className="serif">Расскажите про&nbsp;<em>задачу</em>.</h2>
+            <p className="lede" style={{ marginTop: 32, maxWidth: 520 }}>Отвечаем в&nbsp;течение рабочего дня. Первая консультация&nbsp;— 30 минут, бесплатно.</p>
+          </div>
+          <div>
+            <div className="info">
+              <div className="grp">
+                <div className="lbl">Email</div>
+                <div className="v"><a href="mailto:hello@follaw.ru">hello@follaw.ru</a></div>
+              </div>
+              <div className="grp">
+                <div className="lbl">Телефон</div>
+                <div className="v mono">+7 495 000 22 26</div>
+              </div>
+              <div className="grp">
+                <div className="lbl">Адрес</div>
+                <div className="v">Москва, Большой Гнездниковский,&nbsp;7</div>
+              </div>
+              <div className="grp">
+                <div className="lbl">Часы</div>
+                <div className="v mono">пн–пт &nbsp;10:00 — 19:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {sent ?
+        <div className="form">
+            <div className="sent">
+              <div className="ico">✓</div>
+              <div className="t">Спасибо. Мы&nbsp;уже читаем&nbsp;ваше сообщение&nbsp;— <span className="accent">ответим в&nbsp;течение рабочего дня</span>.</div>
+            </div>
+          </div> :
+
+        <form className="form" onSubmit={submit}>
+            <div className={`field ${focus === 'name' ? 'focused' : ''}`}>
+              <label>Имя</label>
+              <input value={form.name} onChange={set('name')} onFocus={() => setFocus('name')} onBlur={() => setFocus('')} placeholder="Как к&nbsp;вам обращаться" />
+            </div>
+            <div className={`field ${focus === 'company' ? 'focused' : ''}`}>
+              <label>Бренд / компания</label>
+              <input value={form.company} onChange={set('company')} onFocus={() => setFocus('company')} onBlur={() => setFocus('')} placeholder="название или сайт" />
+            </div>
+            <div className={`field ${focus === 'email' ? 'focused' : ''}`}>
+              <label>Контакт</label>
+              <input value={form.email} onChange={set('email')} onFocus={() => setFocus('email')} onBlur={() => setFocus('')} placeholder="email или телеграм" />
+            </div>
+            <div className="field">
+              <label>Индустрия</label>
+              <div className="chips">
+                {industries.map((c, i) =>
+              <button type="button" key={i} className={`chip ${form.industry === c ? 'active' : ''}`} onClick={() => setForm({ ...form, industry: c })}>{c}</button>
+              )}
+              </div>
+            </div>
+            <div className={`field full ${focus === 'task' ? 'focused' : ''}`}>
+              <label>Задача</label>
+              <textarea value={form.task} onChange={set('task')} onFocus={() => setFocus('task')} onBlur={() => setFocus('')} placeholder="в двух абзацах: что у&nbsp;вас происходит и&nbsp;к&nbsp;какому сроку нужен ответ" />
+            </div>
+            <div className="field full">
+              <label>Бюджет / формат</label>
+              <div className="chips">
+                {budgets.map((c, i) =>
+              <button type="button" key={i} className={`chip ${form.budget === c ? 'active' : ''}`} onClick={() => setForm({ ...form, budget: c })}>{c}</button>
+              )}
+              </div>
+            </div>
+            <div className="submit-row">
+              <div className="small">Отправляя форму, вы&nbsp;соглашаетесь с&nbsp;политикой обработки данных. Информация остаётся между&nbsp;нами&nbsp;— даже до&nbsp;подписания NDA.</div>
+              <button type="submit" className="submit">Отправить <span className="arrow">→</span></button>
+            </div>
+          </form>
+        }
+      </div>
+    </section>);
+
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="wrap">
+        <div className="row">
+          <div>© Follaw, 2026 · Юридическое бюро</div>
+          <div className="legal">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Реквизиты</a>
+            <a href="#">@follaw.bureau</a>
+          </div>
+        </div>
+      </div>
+    </footer>);
+
+}
+
+window.Nav = Nav;
+window.Hero = Hero;
+window.Manifesto = Manifesto;
+window.Services = Services;
+window.Cases = Cases;
+window.Team = Team;
+window.Contact = Contact;
+window.Footer = Footer;
